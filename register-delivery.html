@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <script>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      const lang = urlLang || localStorage.getItem('reboulot_lang') || 'fr';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" data-i18n="meta_desc_delivery" content="Register as a delivery courier with Reboulot. Deliver food and packages in your city." />
+  <title data-i18n="page_title_delivery">Deliver with Reboulot | Courier Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="register.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://reboulot.com/register-delivery.html" />
+  <link rel="alternate" hreflang="fr" href="https://reboulot.com/register-delivery.html?lang=fr" />
+  <link rel="alternate" hreflang="en" href="https://reboulot.com/register-delivery.html?lang=en" />
+  <link rel="alternate" hreflang="ar" href="https://reboulot.com/register-delivery.html?lang=ar" />
+  <link rel="alternate" hreflang="de" href="https://reboulot.com/register-delivery.html?lang=de" />
+  <link rel="alternate" hreflang="it" href="https://reboulot.com/register-delivery.html?lang=it" />
+  <link rel="alternate" hreflang="es" href="https://reboulot.com/register-delivery.html?lang=es" />
+  <link rel="alternate" hreflang="pl" href="https://reboulot.com/register-delivery.html?lang=pl" />
+  <link rel="alternate" hreflang="nl" href="https://reboulot.com/register-delivery.html?lang=nl" />
+  <link rel="alternate" hreflang="sv" href="https://reboulot.com/register-delivery.html?lang=sv" />
+  <link rel="alternate" hreflang="pt" href="https://reboulot.com/register-delivery.html?lang=pt" />
+  <meta property="og:image" content="https://reboulot.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://unpkg.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://registration-backend.dsridha.workers.dev; frame-src 'none'; object-src 'none'; base-uri 'self'" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Reboulot","url":"https://reboulot.com/"}
+  </script>
+</head>
+
+<body>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <span data-i18n="cookie_text">We use localStorage to remember your language preference and draft form data. By continuing, you consent to this.</span>
+    <button id="cookie-accept" class="cookie-btn" data-i18n="cookie_btn">Accept</button>
+  </div>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+      </a>
+      <div class="nav-links">
+        <select id="lang-select" class="lang-select"></select>
+      </div>
+    </div>
+  </nav>
+
+  <div class="premium-layout">
+    <!-- Left Side: Hero and Value Prop -->
+    <div class="premium-hero" style="background-image: url('bg_delivery.webp');">
+      <div class="premium-hero-content">
+        <h1><span data-i18n="rd_title">Deliver &</span> <span style="color: var(--brand-light)"
+            data-i18n="rd_title2">Earn Your Way</span></h1>
+        <p class="hero-sub" data-i18n="rd_sub">Join the Reboulot courier fleet. Receive delivery requests in your area,
+          deliver packages and food, and collect payment directly from customers cash in hand, every time.</p>
+
+        <div class="premium-benefits">
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">💵</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rd_b1_t">Cash on Delivery</h4>
+              <p data-i18n="rd_b1_d">Customers pay you directly in cash upon receiving their order. No waiting, no
+                platform deductions.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">🛵</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rd_b2_t">Choose Your Vehicle</h4>
+              <p data-i18n="rd_b2_d">Bike, scooter, or car use whatever you already have to start delivering instantly.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">🗺️</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rd_b3_t">Work Your Zone</h4>
+              <p data-i18n="rd_b3_d">Define your preferred working area and receive orders closest to you with smart
+                routing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Registration Form -->
+    <div class="premium-form-side">
+      <a href="index.html#join" class="back-link" data-i18n="back_home">← Back to Home</a>
+
+      <div class="form-header">
+        <h2 data-i18n="rd_form_title">Register as a Courier</h2>
+        <p data-i18n="rd_form_sub">Fill in your details to join the Reboulot program.</p>
+      </div>
+
+      <form class="register-form" onsubmit="handleRegistration(event, 'Delivery Driver')">
+        <div class="form-group">
+          <label for="name" data-i18n="form_name">Full Name</label>
+          <input type="text" id="name" name="name" required data-i18n-placeholder="placeholder_name" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="form_email">Email Address</label>
+          <input type="email" id="email" name="email" required data-i18n-placeholder="placeholder_email" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone" data-i18n="form_phone">Phone Number</label>
+          <div class="phone-input-group">
+            <select id="country_code" name="country_code" class="country-select"></select>
+            <input type="tel" id="phone" name="phone" required data-i18n-placeholder="placeholder_phone" placeholder="+1 234 567 890" class="phone-number" pattern="[0-9\s\+]+">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="vehicle_type" data-i18n="rd_veh">Vehicle Type</label>
+          <select id="vehicle_type" name="vehicle_type" required>
+            <option value="" disabled selected data-i18n="rd_veh_sel">Select your vehicle...</option>
+            <option value="Bicycle" data-i18n="rd_v1">Bicycle</option>
+            <option value="Scooter/Motorcycle" data-i18n="rd_v2">Scooter / Motorcycle</option>
+            <option value="Car" data-i18n="rd_v3">Car</option>
+            <option value="Van" data-i18n="rd_v4">Van</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="city" data-i18n="rd_reg">Preferred Working Region</label>
+          <select id="city" name="city" required>
+            <option value="" disabled selected data-i18n="form_city_sel">Select your city...</option>
+          </select>
+        </div>
+
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden" />
+
+        <div class="consent-group">
+          <label>
+            <input type="checkbox" name="confirm" required />
+            <span data-i18n="rd_confirm">I confirm that I own or have lawful use of a bicycle, scooter, or car, and hold an auto-entrepreneur permit or equivalent legal authorization for delivery services.</span>
+          </label>
+        </div>
+
+        <div class="consent-group">
+          <label>
+            <input type="checkbox" name="consent" required />
+            <span data-i18n="form_consent">I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-of-service.html">Terms of Service</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" data-i18n="form_submit">Submit Registration</button>
+        <div id="form-message" class="form-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
+  <script src="register.js"></script>
+</body>
+
+</html>

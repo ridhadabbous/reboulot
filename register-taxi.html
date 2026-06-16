@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <script>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      const lang = urlLang || localStorage.getItem('reboulot_lang') || 'fr';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" data-i18n="meta_desc_taxi" content="Register as a taxi driver with Reboulot. Drive and earn cash in your city." />
+  <title data-i18n="page_title_taxi">Drive with Reboulot | Taxi Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="register.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://reboulot.com/register-taxi.html" />
+  <link rel="alternate" hreflang="fr" href="https://reboulot.com/register-taxi.html?lang=fr" />
+  <link rel="alternate" hreflang="en" href="https://reboulot.com/register-taxi.html?lang=en" />
+  <link rel="alternate" hreflang="ar" href="https://reboulot.com/register-taxi.html?lang=ar" />
+  <link rel="alternate" hreflang="de" href="https://reboulot.com/register-taxi.html?lang=de" />
+  <link rel="alternate" hreflang="it" href="https://reboulot.com/register-taxi.html?lang=it" />
+  <link rel="alternate" hreflang="es" href="https://reboulot.com/register-taxi.html?lang=es" />
+  <link rel="alternate" hreflang="pl" href="https://reboulot.com/register-taxi.html?lang=pl" />
+  <link rel="alternate" hreflang="nl" href="https://reboulot.com/register-taxi.html?lang=nl" />
+  <link rel="alternate" hreflang="sv" href="https://reboulot.com/register-taxi.html?lang=sv" />
+  <link rel="alternate" hreflang="pt" href="https://reboulot.com/register-taxi.html?lang=pt" />
+  <meta property="og:image" content="https://reboulot.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://unpkg.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://registration-backend.dsridha.workers.dev; frame-src 'none'; object-src 'none'; base-uri 'self'" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Reboulot","url":"https://reboulot.com/"}
+  </script>
+</head>
+
+<body>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <span data-i18n="cookie_text">We use localStorage to remember your language preference and draft form data. By continuing, you consent to this.</span>
+    <button id="cookie-accept" class="cookie-btn" data-i18n="cookie_btn">Accept</button>
+  </div>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+      </a>
+      <div class="nav-links">
+        <select id="lang-select" class="lang-select"></select>
+      </div>
+    </div>
+  </nav>
+
+  <div class="premium-layout">
+    <!-- Left Side: Hero and Value Prop -->
+    <div class="premium-hero" style="background-image: url('bg_taxi.webp');">
+      <div class="premium-hero-content">
+        <h1><span data-i18n="rt_title">Drive on</span> <span style="color: var(--brand-light)"
+            data-i18n="rt_title2">Your Terms</span></h1>
+        <p class="hero-sub" data-i18n="rt_sub">Join Reboulot as a taxi driver. Connect with passengers in your city and
+          collect payment directly from them in cash no commissions, no deductions, ever.</p>
+
+        <div class="premium-benefits">
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">💵</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rt_b1_t">Cash Payments</h4>
+              <p data-i18n="rt_b1_d">Passengers pay you directly in cash at the end of every trip. Instant, with no
+                middleman.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">🕒</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rt_b2_t">Total Flexibility</h4>
+              <p data-i18n="rt_b2_d">You are your own boss. Go online and offline instantly. Work when and where it
+                suits you.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">📱</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rt_b3_t">Smart Driver App</h4>
+              <p data-i18n="rt_b3_d">A powerful, intuitive app to accept rides, navigate efficiently and manage your
+                day.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">💰</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rt_b4_t">Same Meter Fare</h4>
+              <p data-i18n="rt_b4_d">Passengers pay exactly what the taxi meter shows. No surge pricing, no hidden markups — the same fare they'd pay on the street, just easier to connect.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Registration Form -->
+    <div class="premium-form-side">
+      <a href="index.html#join" class="back-link" data-i18n="back_home">← Back to Home</a>
+
+      <div class="form-header">
+        <h2 data-i18n="rt_form_title">Register as a Taxi Driver</h2>
+        <p data-i18n="rt_form_sub">Complete your details to join the Reboulot taxi network.</p>
+      </div>
+
+      <form class="register-form" onsubmit="handleRegistration(event, 'Taxi Driver')">
+        <div class="form-group">
+          <label for="name" data-i18n="form_name">Full Name</label>
+          <input type="text" id="name" name="name" required data-i18n-placeholder="placeholder_name" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="form_email">Email Address</label>
+          <input type="email" id="email" name="email" required data-i18n-placeholder="placeholder_email" placeholder="john@example.com">
+        </div>
+        <div class="form-group">
+          <label for="phone" data-i18n="form_phone">Phone Number</label>
+          <div class="phone-input-group">
+            <select id="country_code" name="country_code" class="country-select"></select>
+            <input type="tel" id="phone" name="phone" required data-i18n-placeholder="placeholder_phone" placeholder="+1 234 567 890" class="phone-number" pattern="[0-9\s\+]+">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="city" data-i18n="rd_reg">Preferred Working Region</label>
+          <select id="city" name="city" required>
+            <option value="" disabled selected data-i18n="form_city_sel">Select your city...</option>
+          </select>
+        </div>
+
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden" />
+
+        <div class="consent-group">
+          <label>
+            <input type="checkbox" name="confirm" required />
+            <span data-i18n="rt_confirm">I confirm that I own or have lawful use of a vehicle, hold valid insurance, and possess all required permits and licenses to operate as a taxi driver.</span>
+          </label>
+        </div>
+
+        <div class="consent-group">
+          <label>
+            <input type="checkbox" name="consent" required />
+            <span data-i18n="form_consent">I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-of-service.html">Terms of Service</a></span>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" data-i18n="form_submit">Submit Registration</button>
+        <div id="form-message" class="form-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
+  <script src="register.js"></script>
+</body>
+
+</html>

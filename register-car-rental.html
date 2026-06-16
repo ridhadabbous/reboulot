@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <script>
+    (function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      const lang = urlLang || localStorage.getItem('reboulot_lang') || 'fr';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" data-i18n="meta_desc_carrental" content="Register your car rental agency with Reboulot. List your fleet of vehicles and receive direct bookings from customers across multiple countries." />
+  <title data-i18n="page_title_carrental">List Your Fleet with Reboulot | Car Rental Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="register.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://reboulot.com/register-car-rental.html" />
+  <link rel="alternate" hreflang="fr" href="https://reboulot.com/register-car-rental.html?lang=fr" />
+  <link rel="alternate" hreflang="en" href="https://reboulot.com/register-car-rental.html?lang=en" />
+  <link rel="alternate" hreflang="ar" href="https://reboulot.com/register-car-rental.html?lang=ar" />
+  <link rel="alternate" hreflang="de" href="https://reboulot.com/register-car-rental.html?lang=de" />
+  <link rel="alternate" hreflang="it" href="https://reboulot.com/register-car-rental.html?lang=it" />
+  <link rel="alternate" hreflang="es" href="https://reboulot.com/register-car-rental.html?lang=es" />
+  <link rel="alternate" hreflang="pl" href="https://reboulot.com/register-car-rental.html?lang=pl" />
+  <link rel="alternate" hreflang="nl" href="https://reboulot.com/register-car-rental.html?lang=nl" />
+  <link rel="alternate" hreflang="sv" href="https://reboulot.com/register-car-rental.html?lang=sv" />
+  <link rel="alternate" hreflang="pt" href="https://reboulot.com/register-car-rental.html?lang=pt" />
+  <meta property="og:image" content="https://reboulot.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://unpkg.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://registration-backend.dsridha.workers.dev; frame-src 'none'; object-src 'none'; base-uri 'self'" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Reboulot","url":"https://reboulot.com/"}
+  </script>
+</head>
+<body>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <span data-i18n="cookie_text">We use localStorage to remember your language preference and draft form data. By continuing, you consent to this.</span>
+    <button id="cookie-accept" class="cookie-btn" data-i18n="cookie_btn">Accept</button>
+  </div>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+      </a>
+      <div class="nav-links">
+        <select id="lang-select" class="lang-select"></select>
+      </div>
+    </div>
+  </nav>
+
+  <div class="premium-layout">
+    <!-- Left Side: Hero and Value Prop -->
+    <div class="premium-hero" style="background-image: url('bg_car_rental.webp');">
+      <div class="premium-hero-content">
+        <h1><span data-i18n="rc_title">List Your</span> <span style="color: var(--brand-light)" data-i18n="rc_title2">Fleet</span></h1>
+        <p class="hero-sub" data-i18n="rc_sub">Join Reboulot as a car rental agency. List your vehicles, receive booking requests directly from customers, and manage your entire fleet from one dashboard.</p>
+        
+        <div class="premium-benefits">
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">📋</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rc_b1_t">List Your Fleet</h4>
+              <p data-i18n="rc_b1_d">Create detailed listings for each vehicle with photos, specs, and daily rates. City cars, SUVs, luxury, long-term rental — list it all.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">📊</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rc_b2_t">Smart Dashboard</h4>
+              <p data-i18n="rc_b2_d">Manage bookings, track availability, and monitor your entire fleet from a single dashboard. Real-time calendar view.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">🔒</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rc_b3_t">Verified Trust</h4>
+              <p data-i18n="rc_b3_d">Build trust with customers through our agency verification program. Stand out and get more bookings.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon" aria-hidden="true">💸</div>
+            <div class="benefit-text">
+              <h4 data-i18n="rc_b4_t">Weekly Payouts</h4>
+              <p data-i18n="rc_b4_d">Receive payouts directly every week. No holds, no hidden fees, and no commission.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Registration Form -->
+    <div class="premium-form-side">
+      <a href="index.html#join" class="back-link" data-i18n="back_home">← Back to Home</a>
+      
+      <div class="form-header">
+        <h2 data-i18n="rc_form_title">Register Your Agency</h2>
+        <p data-i18n="rc_form_sub">Fill in your agency details to join the Reboulot rental network.</p>
+      </div>
+
+      <form class="register-form" onsubmit="handleRegistration(event, 'Car Rental Agency')">
+        <div class="form-group">
+          <label for="agency_name" data-i18n="rc_agency_name">Agency Name</label>
+          <input type="text" id="agency_name" name="agency_name" required data-i18n-placeholder="placeholder_agency_name" placeholder="My Rental Agency">
+        </div>
+        <div class="form-group">
+          <label for="name" data-i18n="form_name">Owner's Full Name</label>
+          <input type="text" id="name" name="name" required data-i18n-placeholder="placeholder_name" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="form_email">Email Address</label>
+          <input type="email" id="email" name="email" required data-i18n-placeholder="placeholder_email" placeholder="hello@agency.com">
+        </div>
+        <div class="form-group">
+          <label for="phone" data-i18n="form_phone">Phone Number</label>
+          <div class="phone-input-group">
+            <select id="country_code" name="country_code" class="country-select"></select>
+            <input type="tel" id="phone" name="phone" required data-i18n-placeholder="placeholder_phone" placeholder="+1 234 567 890" class="phone-number" pattern="[0-9\s\+]+">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label data-i18n="rc_store_addr">Agency Location</label>
+          <p class="map-instruction" data-i18n="form_map_inst">Click on the map to drop a pin at your agency location.</p>
+          <div id="map" class="map-container"></div>
+        </div>
+        
+        <!-- Honeypot -->
+        <input type="checkbox" name="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden" />
+
+        <div class="consent-group">
+          <label>
+            <input type="checkbox" name="confirm" required />
+            <span data-i18n="rc_confirm">I confirm that I am authorized to rent vehicles and hold all required permits, insurance, and licenses for car rental operations.</span>
+          </label>
+        </div>
+
+        <div class="consent-group">
+          <label>
+            <input type="checkbox" name="consent" required />
+            <span data-i18n="form_consent">I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-of-service.html">Terms of Service</a></span>
+          </label>
+        </div>
+        
+        <button type="submit" class="submit-btn" data-i18n="form_submit">Submit Registration</button>
+        <div id="form-message" class="form-message"></div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
+  <script src="register.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initMap(false);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <script>
+        (function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            const lang = urlLang || localStorage.getItem('reboulot_lang') || 'fr';
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="page_title_404">404 - Page Not Found | Reboulot</title>
+    <meta name="description" data-i18n="meta_desc_404" content="Reboulot - Page not found." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="canonical" href="https://reboulot.com/404.html" />
+    <link rel="alternate" hreflang="fr" href="https://reboulot.com/404.html?lang=fr" />
+    <link rel="alternate" hreflang="en" href="https://reboulot.com/404.html?lang=en" />
+    <link rel="alternate" hreflang="ar" href="https://reboulot.com/404.html?lang=ar" />
+    <link rel="alternate" hreflang="de" href="https://reboulot.com/404.html?lang=de" />
+    <link rel="alternate" hreflang="it" href="https://reboulot.com/404.html?lang=it" />
+    <link rel="alternate" hreflang="es" href="https://reboulot.com/404.html?lang=es" />
+    <link rel="alternate" hreflang="pl" href="https://reboulot.com/404.html?lang=pl" />
+    <link rel="alternate" hreflang="nl" href="https://reboulot.com/404.html?lang=nl" />
+    <link rel="alternate" hreflang="sv" href="https://reboulot.com/404.html?lang=sv" />
+    <link rel="alternate" hreflang="pt" href="https://reboulot.com/404.html?lang=pt" />
+    <meta property="og:image" content="https://reboulot.com/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://unpkg.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://registration-backend.dsridha.workers.dev; frame-src 'none'; object-src 'none'; base-uri 'self'" />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","name":"Reboulot","url":"https://reboulot.com/"}
+    </script>
+  </head>
+
+<body>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <span data-i18n="cookie_text">We use localStorage to remember your language preference and draft form data. By continuing, you consent to this.</span>
+    <button id="cookie-accept" class="cookie-btn" data-i18n="cookie_btn">Accept</button>
+  </div>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="register-delivery.html" class="nav-link">
+                    <img src="icon_delivery_real.webp" alt="Courier icon" class="nav-icon"> <span data-i18n="nav_courier">Become a
+                        Courier</span>
+                </a>
+                <a href="register-taxi.html" class="nav-link">
+                    <img src="icon_taxi_real.webp" alt="Taxi icon" class="nav-icon"> <span data-i18n="nav_driver">Drive with
+                        Us</span>
+                </a>
+                <a href="register-partner.html" class="nav-link nav-link-cta">
+                    <img src="icon_partner_real.webp" alt="Partner icon" class="nav-icon"> <span data-i18n="nav_partner">Partner
+                        with Us</span>
+                </a>
+                <a href="register-car-rental.html" class="nav-link">
+                    <img src="icon_car_rental_real.webp" alt="Car Rental icon" class="nav-icon"> <span data-i18n="nav_carrental">List Your Fleet</span>
+                </a>
+                <select id="lang-select" class="lang-select"></select>
+            </div>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav-mobile" id="nav-mobile">
+            <a href="register-delivery.html"><img src="icon_delivery_real.webp" alt="Courier icon" class="nav-icon"> <span
+                    data-i18n="nav_courier">Become a Courier</span></a>
+            <a href="register-taxi.html"><img src="icon_taxi_real.webp" alt="Taxi icon" class="nav-icon"> <span
+                    data-i18n="nav_driver">Drive with Us</span></a>
+            <a href="register-partner.html"><img src="icon_partner_real.webp" alt="Partner icon" class="nav-icon"> <span
+                    data-i18n="nav_partner">Partner with Us</span></a>
+            <a href="register-car-rental.html"><img src="icon_car_rental_real.webp" alt="Car Rental icon" class="nav-icon"> <span
+                    data-i18n="nav_carrental">List Your Fleet</span></a>
+            <div class="lang-mobile-bar">
+                <select id="lang-select-mobile" class="lang-select"></select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 Section -->
+    <section class="error-section">
+        <div class="error-code">404</div>
+        <h1 class="error-title" data-i18n="error_404_title">Page Not Found</h1>
+        <p class="error-desc" data-i18n="error_404_desc">Oops! It seems you've wandered off the map. The page you are looking for doesn't exist or
+            has been moved.</p>
+
+        <a href="index.html" class="btn-primary" style="margin-bottom: 20px;" data-i18n="error_404_link">
+            ← Back to Safety
+        </a>
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+                </div>
+                <p class="footer-tagline" data-i18n="footer_tagline">The Global Super-App for Food, Taxi, Delivery &amp; Car Rental.</p>
+            </div>
+            <div class="footer-links">
+                <a href="privacy-policy.html" data-i18n="f_link_privacy">Privacy Policy</a>
+                <a href="terms-of-service.html" data-i18n="f_link_terms">Terms of Service</a>
+                <a href="register-taxi.html" data-i18n="f_link_taxi">Taxi Drivers</a>
+                <a href="register-delivery.html" data-i18n="f_link_couriers">Couriers</a>
+                <a href="register-partner.html" data-i18n="f_link_partners">Partners</a>
+                <a href="register-car-rental.html" data-i18n="f_link_carrental">Car Rental</a>
+                <a href="mailto:support@reboulot.com" data-i18n="f_link_contact">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
