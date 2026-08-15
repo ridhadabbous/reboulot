@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <script src="lang-init.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="page_title_deletion">Account & Data Deletion Request | Reboulot</title>
+  <meta name="description" data-i18n="meta_desc_deletion" content="Request the permanent deletion of your Reboulot account and associated data. A verified, secure process for taxi drivers, couriers, partners and rental agencies." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="register.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="canonical" href="https://reboulot.com/account-deletion.html" />
+  <link rel="alternate" hreflang="en" href="https://reboulot.com/account-deletion.html?lang=en" />
+  <link rel="alternate" hreflang="ar" href="https://reboulot.com/account-deletion.html?lang=ar" />
+  <meta property="og:image" content="https://reboulot.com/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com https://unpkg.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://registration-backend.dsridha.workers.dev; frame-src 'none'; object-src 'none'; base-uri 'self'" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Reboulot","url":"https://reboulot.com/"}
+  </script>
+</head>
+<body>
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Cookie consent">
+    <span data-i18n="cookie_text">We use localStorage to remember your language preference and draft form data. By continuing, you consent to this.</span>
+    <button id="cookie-accept" class="cookie-btn" data-i18n="cookie_btn">Accept</button>
+  </div>
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+      </a>
+      <div class="nav-links">
+        <select id="lang-select" class="lang-select"></select>
+      </div>
+    </div>
+  </nav>
+
+  <section class="legal-section">
+    <div class="legal-container">
+      <h1 data-i18n="ad_title">Account &amp; Data Deletion Request</h1>
+      <p class="legal-date" data-i18n="ad_last_updated">Last updated: August 2026</p>
+
+      <div class="legal-block">
+        <p data-i18n="ad_intro">When you register with the Reboulot app (as a taxi driver, delivery courier, store partner, or car rental agency) through the app or this website, we keep a verification record with some of your details. This page explains how to request the permanent deletion of your account and the data associated with it, and the steps we take to verify your identity before any data is removed.</p>
+      </div>
+
+      <div class="legal-block">
+        <h2 data-i18n="ad_how_title">How to Request Account Deletion</h2>
+        <ol class="deletion-steps">
+          <li data-i18n="ad_step1">Have your registered email address and phone number ready.</li>
+          <li data-i18n="ad_step2">Fill in the verification form below with your email address, phone number, and the service you registered for.</li>
+          <li data-i18n="ad_step3">If your details match our records, we log your request and call you on the phone number we have on file to confirm your identity before any deletion. If the details do not match, no request is created.</li>
+          <li data-i18n="ad_step4">You may also send an email from your registered email address using the button below to confirm your request in writing.</li>
+        </ol>
+      </div>
+
+      <div class="legal-block">
+        <h2 data-i18n="ad_form_title">Verification Form</h2>
+        <p class="deletion-note" data-i18n="ad_form_inst">Enter the exact details you used when registering.</p>
+        <form class="register-form deletion-form" id="deletion-form">
+          <div class="form-group">
+            <label for="del-email" data-i18n="form_email">Email Address</label>
+            <input type="email" id="del-email" name="email" required data-i18n-placeholder="placeholder_email" placeholder="mohamed@example.com">
+          </div>
+          <div class="form-group">
+            <label for="del-phone" data-i18n="form_phone">Phone Number</label>
+            <input type="tel" id="del-phone" name="phone" required data-i18n-placeholder="placeholder_phone" placeholder="+216 12 345 678" pattern="[0-9\s\+]+">
+          </div>
+          <div class="form-group">
+            <label for="del-type" data-i18n="ad_type">Service You Registered For</label>
+            <select id="del-type" name="type" required>
+              <option value="" disabled selected data-i18n="ad_type_sel">Select your service type...</option>
+              <option value="Delivery Driver" data-i18n="ad_t1">Delivery Driver (Courier)</option>
+              <option value="Taxi Driver" data-i18n="ad_t2">Taxi Driver</option>
+              <option value="Store Partner" data-i18n="ad_t3">Store Partner (Restaurant / Store)</option>
+              <option value="Car Rental Agency" data-i18n="ad_t4">Car Rental Agency</option>
+            </select>
+          </div>
+
+          <!-- Honeypot -->
+          <input type="checkbox" name="botcheck" style="position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden" />
+
+          <button type="submit" class="submit-btn" data-i18n="ad_btn_submit">Submit Deletion Request</button>
+          <div id="del-message" class="form-message"></div>
+
+          <p class="deletion-note">
+            <a id="del-mailto" class="btn-ghost deletion-mailto" href="#" data-i18n="ad_email_btn">Send Confirmation Email</a>
+          </p>
+          <p class="deletion-note" data-i18n="ad_email_hint">Opens your email app with a pre-filled message to support@reboulot.com. Send it from the email address you registered with.</p>
+        </form>
+      </div>
+
+      <div class="legal-block">
+        <h2 data-i18n="ad_deleted_title">Data That Will Be Deleted</h2>
+        <p data-i18n="ad_deleted_body">After identity confirmation, the following data is permanently deleted: your full name, email address, phone number, country code, vehicle type, working city/region, store or agency name, location coordinates, and any verification records we hold about you. Your account is deleted within 30 days of the confirmed request.</p>
+      </div>
+
+      <div class="legal-block">
+        <h2 data-i18n="ad_retained_title">Data That May Be Retained</h2>
+        <p data-i18n="ad_retained_body">We retain only what the law requires: records needed to comply with legal, tax, or dispute-resolution obligations, kept only for as long as required by law. Residual copies in backups are purged within 90 days. A minimal audit log (hashed identifiers, service type, timestamps, and status) is kept to document that a deletion request was made and fulfilled.</p>
+      </div>
+
+      <div class="legal-block">
+        <h2 data-i18n="ad_contact_title">Questions?</h2>
+        <p data-i18n="ad_contact_body">For questions about this process, contact us at: support@reboulot.com</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <span class="logo-dot"></span><span class="logo-r">R</span><span class="logo-rest">eboulot</span>
+        </div>
+        <p class="footer-tagline" data-i18n="footer_tagline">The Super-App for Food, Taxi, Delivery &amp; Car Rental.</p>
+      </div>
+      <div class="footer-links">
+        <a href="privacy-policy.html" data-i18n="f_link_privacy">Privacy Policy</a>
+        <a href="terms-of-service.html" data-i18n="f_link_terms">Terms of Service</a>
+        <a href="register-taxi.html" data-i18n="f_link_taxi">Taxi Drivers</a>
+        <a href="register-delivery.html" data-i18n="f_link_couriers">Couriers</a>
+        <a href="register-partner.html" data-i18n="f_link_partners">Partners</a>
+        <a href="register-car-rental.html" data-i18n="f_link_carrental">Car Rental</a>
+        <a href="mailto:support@reboulot.com" data-i18n="f_link_contact">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="main.js"></script>
+  <script src="account-deletion.js"></script>
+</body>
+</html>

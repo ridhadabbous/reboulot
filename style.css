@@ -546,6 +546,18 @@ section { position: relative; z-index: 1; }
 /* RTL Support */
 [dir="rtl"] {
   font-family: 'Tajawal', 'Inter', 'Outfit', sans-serif;
+  letter-spacing: 0;
+}
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] .stat-number,
+[dir="rtl"] .error-code,
+[dir="rtl"] .section-label,
+[dir="rtl"] .service-tag,
+[dir="rtl"] .store-badge small {
+  letter-spacing: 0;
 }
 [dir="rtl"] .nav-icon {
   margin-right: 0;
@@ -554,6 +566,8 @@ section { position: relative; z-index: 1; }
 [dir="rtl"] .lang-select {
   margin-left: 0;
   margin-right: 15px;
+  padding: 6px 12px 6px 28px;
+  background-position: left 10px center;
 }
 [dir="rtl"] .benefit-icon {
   margin-right: 0;
@@ -562,9 +576,10 @@ section { position: relative; z-index: 1; }
 [dir="rtl"] .service-cta {
   display: inline-block;
 }
-[dir="rtl"] .form-group input, 
+[dir="rtl"] .form-group input,
 [dir="rtl"] .form-group select {
   text-align: right;
+  font-family: 'Tajawal', 'Inter', sans-serif;
 }
 [dir="rtl"] .map-instruction {
   text-align: right;
@@ -577,6 +592,9 @@ section { position: relative; z-index: 1; }
 }
 [dir="rtl"] .lang-mobile-bar .lang-select {
   margin-right: 0;
+}
+[dir="rtl"] .premium-hero::before {
+  background: linear-gradient(to left, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.6) 100%);
 }
 /* === FOOTER === */
 .footer { position: relative; z-index: 1; border-top: 1px solid var(--border); }
@@ -687,6 +705,32 @@ section { position: relative; z-index: 1; }
 .legal-block p {
   line-height: 1.7;
   color: var(--text-muted);
+}
+
+/* Account Deletion Page */
+.deletion-steps {
+  padding-inline-start: 20px;
+  margin-top: 12px;
+}
+.deletion-steps li {
+  margin-bottom: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.deletion-note {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  margin-top: 8px;
+}
+.deletion-mailto {
+  margin: 14px 0 8px;
+  display: inline-flex;
+}
+.deletion-form {
+  margin-top: 16px;
+}
+.deletion-form .form-group {
+  margin-bottom: 18px;
 }
 
 /* Consent Checkbox */
@@ -833,8 +877,8 @@ section { position: relative; z-index: 1; }
   left: 0;
   right: 0;
   z-index: 10000;
-  background: #1a1a2e;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  background: var(--bg2);
+  border-top: 1px solid rgba(229,57,53,0.35);
   padding: 16px 24px;
   display: flex;
   align-items: center;

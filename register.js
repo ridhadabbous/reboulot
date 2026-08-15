@@ -19,6 +19,10 @@ function restoreDraft() {
     const raw = localStorage.getItem(DRAFT_KEY);
     if (!raw) return;
     const data = JSON.parse(raw);
+    if (data.country_code && SUPPORTED_CODES.indexOf(data.country_code) === -1) {
+      localStorage.removeItem(DRAFT_KEY);
+      return;
+    }
     Object.entries(data).forEach(([key, val]) => {
       const el = document.getElementById(key) || document.querySelector(`[name="${key}"]`);
       if (el && el.type !== 'checkbox' && el.type !== 'hidden') {
@@ -32,24 +36,16 @@ function clearDraft() {
   try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
 }
 
+const SUPPORTED_CODES = ['+216', '+213', '+218'];
+
 const COUNTRIES = {
   tn: { code: '+216', cities: ['Tunis', 'Ariana', 'Ben Arous', 'Manouba', 'Nabeul', 'Zaghouan', 'Bizerte', 'Beja', 'Jendouba', 'Kef', 'Siliana', 'Kairouan', 'Kasserine', 'Sidi Bouzid', 'Sousse', 'Monastir', 'Mahdia', 'Sfax', 'Gafsa', 'Tozeur', 'Kebili', 'Gabes', 'Medenine', 'Tataouine'], center: [36.8065, 10.1815] },
   dz: { code: '+213', cities: ['Algiers', 'Oran', 'Constantine', 'Annaba', 'Blida', 'Setif', 'Tlemcen', 'Bejaia', 'Batna', 'Skikda', 'Biskra', 'Tizi Ouzou', 'Djelfa', 'Sidi Bel Abbes', 'Bouira', 'Tebessa', 'Tiaret', 'Souk Ahras', 'Medea', 'Mostaganem', 'Ouargla', 'M\'Sila', 'Guelma', 'Laghouat', 'Boumerdes', 'Khenchela', 'El Oued', 'Ain Temouchent'], center: [36.7538, 3.0588] },
-  ly: { code: '+218', cities: ['Tripoli', 'Benghazi', 'Misrata', 'Zawiya', 'Al Khums', 'Derna', 'Tobruk', 'Sabha', 'Bayda', 'Sirte', 'Gharyan', 'Zliten', 'Murzuq', 'Ghat', 'Nalut', 'Ajdabiya', 'Ubari', 'Brak', 'Shahhat', 'Al Marj', 'Kufra', 'Al Qatrun'], center: [32.8872, 13.1913] },
-  fr: { code: '+33', cities: ['Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice', 'Nantes', 'Strasbourg', 'Montpellier', 'Bordeaux', 'Lille', 'Rennes', 'Grenoble', 'Rouen', 'Toulon', 'Aix-en-Provence', 'Le Havre', 'Reims', 'Saint-Étienne', 'Dijon', 'Angers', 'Nîmes', 'Clermont-Ferrand', 'Le Mans', 'Brest', 'Nancy', 'Metz', 'Orléans', 'Avignon'], center: [48.8566, 2.3522] },
-  de: { code: '+49', cities: ['Berlin', 'Hamburg', 'Munich', 'Cologne', 'Frankfurt', 'Stuttgart', 'Düsseldorf', 'Leipzig', 'Dortmund', 'Essen', 'Bremen', 'Dresden', 'Hanover', 'Nuremberg', 'Duisburg', 'Bochum', 'Wuppertal', 'Bielefeld', 'Bonn', 'Münster', 'Mannheim', 'Karlsruhe', 'Augsburg', 'Wiesbaden', 'Mönchengladbach', 'Gelsenkirchen', 'Aachen', 'Braunschweig', 'Kiel', 'Chemnitz'], center: [52.5200, 13.4050] },
-  it: { code: '+39', cities: ['Rome', 'Milan', 'Naples', 'Turin', 'Palermo', 'Genoa', 'Bologna', 'Florence', 'Catania', 'Bari', 'Venice', 'Verona', 'Messina', 'Padua', 'Trieste', 'Brescia', 'Parma', 'Taranto', 'Modena', 'Reggio Calabria', 'Perugia', 'Livorno', 'Ravenna', 'Cagliari', 'Foggia', 'Rimini', 'Salerno', 'Ferrara', 'Sassari', 'Syracuse'], center: [41.9028, 12.4964] },
-  es: { code: '+34', cities: ['Madrid', 'Barcelona', 'Valencia', 'Seville', 'Zaragoza', 'Malaga', 'Murcia', 'Palma', 'Las Palmas', 'Bilbao', 'Alicante', 'Cordoba', 'Valladolid', 'Vigo', 'Gijon', 'Granada', 'Elche', 'Oviedo', 'Santander', 'Pamplona', 'San Sebastian', 'Salamanca', 'Huelva', 'Badajoz', 'La Coruña', 'Tarragona', 'Leon', 'Cadiz', 'Jaen', 'Almeria'], center: [40.4168, -3.7038] },
-  pl: { code: '+48', cities: ['Warsaw', 'Krakow', 'Lodz', 'Wroclaw', 'Poznan', 'Gdansk', 'Szczecin', 'Bydgoszcz', 'Lublin', 'Katowice', 'Bialystok', 'Gdynia', 'Czestochowa', 'Radom', 'Torun', 'Kielce', 'Rzeszow', 'Sosnowiec', 'Gliwice', 'Zabrze', 'Olsztyn', 'Bielsko-Biala', 'Rybnik', 'Ruda Slaska', 'Tychy', 'Gorzow Wielkopolski', 'Dabrowa Gornicza', 'Plock', 'Elblag', 'Opole'], center: [52.2297, 21.0122] },
-  nl: { code: '+31', cities: ['Amsterdam', 'Rotterdam', 'The Hague', 'Utrecht', 'Eindhoven', 'Groningen', 'Tilburg', 'Almere', 'Breda', 'Nijmegen', 'Apeldoorn', 'Haarlem', 'Arnhem', 'Enschede', 'Amersfoort', 'Zaanstad', 'Den Bosch', 'Zwolle', 'Leiden', 'Maastricht', 'Dordrecht', 'Leeuwarden', 'Ede', 'Alphen aan den Rijn', 'Emmen', 'Delft', 'Venlo', 'Deventer', 'Hilversum', 'Heerlen'], center: [52.3676, 4.9041] },
-  be: { code: '+32', cities: ['Brussels', 'Antwerp', 'Ghent', 'Charleroi', 'Liège', 'Bruges', 'Namur', 'Leuven', 'Mons', 'Mechelen', 'Aalst', 'Hasselt', 'Kortrijk', 'Ostend', 'Tournai', 'Sint-Niklaas', 'Genk', 'Roeselare', 'Verviers', 'Mouscron', 'La Louvière', 'Turnhout', 'Seraing', 'Lokeren', 'Wavre', 'Vilvoorde', 'Châtelet', 'Ieper', 'Tienen', 'Binche'], center: [50.8503, 4.3517] },
-  se: { code: '+46', cities: ['Stockholm', 'Gothenburg', 'Malmö', 'Uppsala', 'Linköping', 'Västerås', 'Örebro', 'Helsingborg', 'Norrköping', 'Jönköping', 'Umeå', 'Lund', 'Borås', 'Sundsvall', 'Gävle', 'Eskilstuna', 'Södertälje', 'Karlstad', 'Täby', 'Växjö', 'Halmstad', 'Luleå', 'Trollhättan', 'Kalmar', 'Kristianstad', 'Falun', 'Skövde', 'Karlskrona', 'Visby', 'Motala'], center: [59.3293, 18.0686] },
-  at: { code: '+43', cities: ['Vienna', 'Graz', 'Linz', 'Salzburg', 'Innsbruck', 'Klagenfurt', 'Villach', 'Wels', 'Sankt Pölten', 'Dornbirn', 'Wiener Neustadt', 'Steyr', 'Feldkirch', 'Bregenz', 'Leonding', 'Klosterneuburg', 'Baden', 'Wolfsberg', 'Leoben', 'Krems', 'Traun', 'Amstetten', 'Lustenau', 'Kapfenberg', 'Mödling', 'Hallein', 'Kufstein', 'Traiskirchen', 'Braunau', 'Schwechat'], center: [48.2082, 16.3738] },
-  pt: { code: '+351', cities: ['Lisbon', 'Porto', 'Braga', 'Coimbra', 'Funchal', 'Amadora', 'Setúbal', 'Aveiro', 'Viseu', 'Portimão', 'Faro', 'Guimarães', 'Leiria', 'Évora', 'Ponta Delgada', 'Viana do Castelo', 'Cascais', 'Oeiras', 'Matosinhos', 'Gondomar', 'Odivelas', 'Vila Nova de Gaia', 'Almada', 'Barreiro', 'Sintra', 'Loures', 'Queluz', 'Póvoa de Varzim', 'Torres Vedras', 'Maia'], center: [38.7223, -9.1393] }
+  ly: { code: '+218', cities: ['Tripoli', 'Benghazi', 'Misrata', 'Zawiya', 'Al Khums', 'Derna', 'Tobruk', 'Sabha', 'Bayda', 'Sirte', 'Gharyan', 'Zliten', 'Murzuq', 'Ghat', 'Nalut', 'Ajdabiya', 'Ubari', 'Brak', 'Shahhat', 'Al Marj', 'Kufra', 'Al Qatrun'], center: [32.8872, 13.1913] }
 };
 
 /**
- * Initializes a Leaflet Map defaulting to Paris, France.
+ * Initializes a Leaflet Map defaulting to Tunis, Tunisia.
  * @param {boolean} requireRadius - Whether to show a working radius circle.
  */
 function initMap(requireRadius = false) {
@@ -57,8 +53,8 @@ function initMap(requireRadius = false) {
   if (!mapEl || typeof L === 'undefined') return;
 
   const ccEl = document.getElementById('country_code');
-  const selected = ccEl ? ccEl.value : '+33';
-  const country = Object.values(COUNTRIES).find(c => c.code === selected) || COUNTRIES.fr;
+  const selected = ccEl ? ccEl.value : '+216';
+  const country = Object.values(COUNTRIES).find(c => c.code === selected) || COUNTRIES.tn;
   const defaultLocation = country.center;
 
   mapInstance = L.map('map', {
@@ -214,7 +210,7 @@ async function handleRegistration(event, userType) {
   }
 }
 
-const COUNTRY_FLAGS = { tn: '\u{1F1F9}\u{1F1F3}', dz: '\u{1F1E9}\u{1F1FF}', ly: '\u{1F1F1}\u{1F1FE}', fr: '\u{1F1EB}\u{1F1F7}', de: '\u{1F1E9}\u{1F1EA}', it: '\u{1F1EE}\u{1F1F9}', es: '\u{1F1EA}\u{1F1F8}', pl: '\u{1F1F5}\u{1F1F1}', nl: '\u{1F1F3}\u{1F1F1}', be: '\u{1F1E7}\u{1F1EA}', se: '\u{1F1F8}\u{1F1EA}', at: '\u{1F1E6}\u{1F1F9}', pt: '\u{1F1F5}\u{1F1F9}' };
+const COUNTRY_FLAGS = { tn: '\u{1F1F9}\u{1F1F3}', dz: '\u{1F1E9}\u{1F1FF}', ly: '\u{1F1F1}\u{1F1FE}' };
 
 function populateCountryCode() {
   const sel = document.getElementById('country_code');
@@ -224,7 +220,7 @@ function populateCountryCode() {
     const opt = document.createElement('option');
     opt.value = c.code;
     opt.textContent = `${COUNTRY_FLAGS[key]} ${c.code}`;
-    if (c.code === '+33') opt.selected = true;
+    if (c.code === '+216') opt.selected = true;
     sel.appendChild(opt);
   });
 }
@@ -235,7 +231,7 @@ function populateCities() {
   if (!ccSel || !citySel) return;
   const dict = typeof translations !== 'undefined' ? translations[currentLang] : null;
   const placeholder = (dict && dict['form_city_sel']) || 'Select your city...';
-  const country = Object.values(COUNTRIES).find(c => c.code === ccSel.value) || COUNTRIES.fr;
+  const country = Object.values(COUNTRIES).find(c => c.code === ccSel.value) || COUNTRIES.tn;
   citySel.innerHTML = `<option value="" disabled selected>${placeholder}</option>`;
   country.cities.forEach(name => {
     const opt = document.createElement('option');
@@ -249,7 +245,7 @@ function updateMapCenter() {
   if (!mapInstance) return;
   const ccSel = document.getElementById('country_code');
   if (!ccSel) return;
-  const country = Object.values(COUNTRIES).find(c => c.code === ccSel.value) || COUNTRIES.fr;
+  const country = Object.values(COUNTRIES).find(c => c.code === ccSel.value) || COUNTRIES.tn;
   mapInstance.setView(country.center, 12);
   if (markerInstance) {
     mapInstance.removeLayer(markerInstance);
