@@ -87,7 +87,8 @@
 
         if (res.ok && result.success) {
           showMessage(okKey, true);
-        } else if (result.message === 'no_match') {
+        } else if (result.message === 'no_match' || result.message === 'no_record' || result.message === 'phone_mismatch') {
+          console.info('Deletion diagnostic:', result.message);
           showMessage(noMatchKey, false);
         } else {
           showMessage(errKey, false);
