@@ -260,7 +260,7 @@ function updateMapCenter() {
 
 document.addEventListener('DOMContentLoaded', () => {
   populateCountryCode();
-  populateCities();
+  restoreDraft();
 
   const ccSel = document.getElementById('country_code');
   if (ccSel) {
@@ -270,7 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  restoreDraft();
+  populateCities();
+
+  const citySel = document.getElementById('city');
+  if (citySel) {
+    try {
+      const draft = JSON.parse(localStorage.getItem(DRAFT_KEY));
+      if (draft && draft.city) citySel.value = draft.city;
+    } catch (e) {}
+  }
 
   const form = document.querySelector('.register-form');
   if (form) {
