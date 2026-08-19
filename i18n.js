@@ -8,7 +8,7 @@ const translations = {
 
         // Hero
         "hero_title1": "One App.",
-        "hero_title2": "Every Service.",
+        "hero_title2": "Lots of Services.",
         "hero_sub": "<strong><span style='color: var(--brand-light);'>Reboulot</span></strong> food delivery, taxi rides, car rental & parcel shipping,<br class='break-lg'/>all in one seamless global experience.",
         "hero_cta1": "Get Started",
         "hero_cta2": "Explore Services",
@@ -105,16 +105,12 @@ const translations = {
         "rt_b2_d": "You are your own boss. Go online and offline instantly. Work when and where it suits you.",
         "rt_b3_t": "Smart Driver App",
         "rt_b3_d": "A powerful, intuitive app to accept rides, navigate efficiently and manage your day.",
-        "rt_b4_t": "Same Meter Fare",
-        "rt_b4_d": "Passengers pay exactly what the taxi meter shows. No surge pricing, no hidden markups \u2014 the same fare they\u2019d pay on the street, just easier to connect.",
         "rt_form_title": "Register as a Taxi Driver",
 
         // Reg Partner
         "rp_title": "Grow",
         "rp_title2": "Your Business",
         "rp_sub": "Partner with <span style='color: var(--brand-light);'>Reboulot</span> to reach thousands of new customers in your city. Manage orders directly from a dedicated tablet and let our couriers handle the delivery.",
-        "rp_b1_t": "Zero Commission",
-        "rp_b1_d": "Keep 100% of your menu prices. Customers pay couriers directly in cash.",
         "rp_b2_t": "Delivery Solved",
         "rp_b2_d": "We handle the delivery logistics for you. Orders are automatically assigned to nearby couriers.",
         "rp_b3_t": "Easy Management",
@@ -134,8 +130,6 @@ const translations = {
         "rc_b2_d": "Manage bookings, track availability, and monitor your entire fleet from a single dashboard. Real-time calendar view.",
         "rc_b3_t": "Verified Trust",
         "rc_b3_d": "Build trust with customers through our agency verification program. Stand out and get more bookings.",
-        "rc_b4_t": "Weekly Payouts",
-        "rc_b4_d": "Receive payouts directly every week. No holds, no hidden fees, and no commission.",
         "rc_form_title": "Register Your Agency",
         "rc_form_sub": "Fill in your agency details to join the <span style='color: var(--brand-light);'>Reboulot</span> rental network.",
         "rc_confirm": "I confirm that I am authorized to rent vehicles and hold all required permits, insurance, and licenses for car rental operations.",
@@ -265,7 +259,7 @@ const translations = {
 
         // Hero
         "hero_title1": "تطبيق واحد.",
-        "hero_title2": "كل خدمة.",
+        "hero_title2": "الكثير من الخدمات.",
         "hero_sub": "<strong><span style='color: var(--brand-light);'>Reboulot</span></strong> لتوصيل الطعام، رحلات التاكسي، تأجير السيارات، وشحن الطرود،<br class='break-lg'/>كل ذلك في تجربة واحدة سلسة.",
         "hero_cta1": "ابدأ تجربتك الآن",
         "hero_cta2": "تصفح خدماتنا",
@@ -363,16 +357,12 @@ const translations = {
         "rt_b2_d": "القرار بيدك. اعمل متى ما شئت وأينما شئت، سجل دخولك وانطلق براحتك.",
         "rt_b3_t": "تطبيق ذكي لخدمتك",
         "rt_b3_d": "تطبيق متطور وسهل الاستخدام لقبول الرحلات، التوجيه الذكي، وإدارة يومك بكفاءة.",
-        "rt_b4_t": "نفس أجرة العداد",
-        "rt_b4_d": "يدفع الركاب نفس ما يظهره عداد التاكسي بالضبط. لا أسعار مضاعفة ولا رسوم مخفية — نفس الأجرة المعتادة، ولكن بطريقة أسهل للتواصل.",
         "rt_form_title": "سجل كسائق سيارة أجرة",
 
         // Reg Partner
         "rp_title": "ارتقِ",
         "rp_title2": "بنشاطك التجاري",
         "rp_sub": "انضم كشريك تجاري مع <span style='color: var(--brand-light);'>Reboulot</span> للوصول إلى آلاف العملاء الجدد. أدر طلباتك بسهولة عبر جهاز لوحي، ودع أسطولنا يتكفل بالتوصيل.",
-        "rp_b1_t": "أرباحك لك بنسبة 100%",
-        "rp_b1_d": "لا نفرض أي عمولات على قائمة طعامك. العميل يدفع للمندوب نقداً.",
         "rp_b2_t": "لا تشيل همّ التوصيل",
         "rp_b2_d": "اللوجستيات علينا. سيتم إسناد طلباتك تلقائياً لأقرب مندوب توصيل متاح.",
         "rp_b3_t": "إدارة سلسة وذكية",
@@ -392,8 +382,6 @@ const translations = {
         "rc_b2_d": "أدر الحجوزات وتابع التوفر وراقب أسطولك من لوحة تحكم واحدة مع تقويم فوري.",
         "rc_b3_t": "ثقة موثقة",
         "rc_b3_d": "ابنِ الثقة مع العملاء من خلال برنامج التحقق من الوكالات. تميز واحصل على حجوزات أكثر.",
-        "rc_b4_t": "دفعات أسبوعية",
-        "rc_b4_d": "استلم مستحقاتك أسبوعياً. لا تعليق للمدفوعات ولا رسوم مخفية ولا عمولات.",
         "rc_form_title": "سجل وكالتك",
         "rc_form_sub": "املأ بيانات وكالتك للانضمام إلى شبكة تأجير <span style='color: var(--brand-light);'>Reboulot</span>.",
         "rc_confirm": "أؤكد أنني مفوض لتأجير السيارات وأن لدي جميع التصاريح والتأمينات والرخص اللازمة لتشغيل وكالة تأجير سيارات.",
